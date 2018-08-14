@@ -5,7 +5,7 @@ let maxFrames = 20;
 let graphics;
 let turtlePath;
 
-var gridScalar = 1;
+var gridScalar = 16;
 var gridXAmount = 16 * gridScalar;
 var gridYAmount = 9 * gridScalar;
 var tileWidth;
@@ -33,7 +33,7 @@ function setup() {
     for (var x = 0; x < gridXAmount; x++) {
         for (var y = 0; y < gridYAmount; y++) {
             var oneDValue = x + (y * gridXAmount);
-            let value = noise(x * 0.5, y * 0.5);
+            let value = noise(x * 0.05, y * 0.05);
             graphics.fill(value * 255);
             grid[oneDValue] = value;
             graphics.rect(x * tileWidth, y * tileWidth, tileWidth + 1, tileWidth + 1);
@@ -43,6 +43,9 @@ function setup() {
 }
 
 function draw() {
+    // if (frameCount % 5 == 0) {
+    //     turtle.pos = { x: random(width), y: random(height) };
+    // }
     // turtlePath.background(255, 10);
     // clear();
     // turtle.s = sin(frameCount / 10) * 5;

@@ -25,13 +25,22 @@ Turtle.prototype.show = function() {
 };
 
 Turtle.prototype.walk = function() {
+    this.s = 0.05;
+    let headingModifier = map(this.currentValue, 0, 0.25, -PI * this.s, PI * this.s);
 
-    let headingModifier = map(this.currentValue, 0, 1, -PI * this.s, PI * this.s);
-    var a = this.heading + headingModifier;
     var r = map(this.currentValue, 0, 1, tileWidth * 0.1, tileWidth * 1);
     r = max(10, this.currentValue * 5);
-    r = 10;
+    // r = sin(this.currentValue * 100) * 15;
+    r = 0.1;
+    if (this.currentValue < 0.5) {
+        a = 1;
+        // let headingModifier = PI * this.s;
+    } else {
+        a = -1;
+        // let headingModifier = -PI * this.s;
+    }
     // a = PI /  10;
+    var a = this.heading + headingModifier;
     var x = cos(a) * r;
     var y = sin(a) * r;
     // console.log(x, y);
