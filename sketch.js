@@ -20,7 +20,8 @@ function setup() {
     graphics = createGraphics(width * 2, height * 2);
     turtlePath = createGraphics(width * 2, height * 2);
     // turtlePath.blendMode(turtlePath.BURN);
-    turtlePath.stroke(0);
+    turtlePath.background(255);
+    // turtlePath.stroke(255);
     frameRate(30);
     background(255);
     fill(255, 50);
@@ -33,7 +34,7 @@ function setup() {
     for (var x = 0; x < gridXAmount; x++) {
         for (var y = 0; y < gridYAmount; y++) {
             var oneDValue = x + (y * gridXAmount);
-            let value = noise(x * 0.05, y * 0.05);
+            let value = noise(x * 0.005, y * 0.005);
             graphics.fill(value * 255);
             grid[oneDValue] = value;
             graphics.rect(x * tileWidth, y * tileWidth, tileWidth + 1, tileWidth + 1);
