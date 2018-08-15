@@ -11,7 +11,7 @@ for (let i = 0; i < query.length; i++) {
 let exporting = (GET["exporting"] && GET["exporting"] == "true") ? true : false;
 
 function frameExport() {
-    var formattedFrameCount = "" + framesToPrints;
+    var formattedFrameCount = "" + frameCount;
     while (formattedFrameCount.length < 5) {
         formattedFrameCount = "0" + formattedFrameCount;
     }

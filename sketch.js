@@ -4,6 +4,7 @@ let fileName = "./frames/sketch";
 let maxFrames = 20;
 let graphics;
 let turtlePath;
+let seed;
 
 var gridScalar = 16;
 var gridXAmount = 16 * gridScalar;
@@ -21,7 +22,7 @@ function setup() {
     turtlePath = createGraphics(width * 2, height * 2);
     // turtlePath.blendMode(turtlePath.BURN);
     turtlePath.background(255);
-    // turtlePath.stroke(255);
+    turtlePath.stroke(0);
     frameRate(30);
     background(255);
     fill(255, 50);
@@ -29,12 +30,14 @@ function setup() {
     if (!looping) {
         noLoop();
     }
+    seed = random(0, 99);
+    noiseSeed(seed);
     tileWidth = width / gridXAmount - 1 / gridXAmount;
     turtle = new Turtle(width / 2, height / 2);
     for (var x = 0; x < gridXAmount; x++) {
         for (var y = 0; y < gridYAmount; y++) {
             var oneDValue = x + (y * gridXAmount);
-            let value = noise(x * 0.005, y * 0.005);
+            let value = noise(x * 0.025, y * 0.025);
             graphics.fill(value * 255);
             grid[oneDValue] = value;
             graphics.rect(x * tileWidth, y * tileWidth, tileWidth + 1, tileWidth + 1);

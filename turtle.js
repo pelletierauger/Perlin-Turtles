@@ -36,10 +36,10 @@ Turtle.prototype.walk = function() {
         a = 0 + random();
         // let headingModifier = PI * this.s;
     } else {
-        a = -5 + random();
+        a = -7 + random();
         // let headingModifier = -PI * this.s;
     }
-    a *= this.currentValue;
+    a *= this.currentValue * 5;
     // a = PI /  10;
     // var a = this.heading + headingModifier;
     var x = cos(a) * r;
