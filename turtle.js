@@ -32,14 +32,25 @@ Turtle.prototype.walk = function() {
     r = max(10, this.currentValue * 5);
     // r = sin(this.currentValue * 100) * 15;
     r = 0.5;
-    if (this.currentValue < 0.5) {
-        a = 0 + random();
-        // let headingModifier = PI * this.s;
-    } else {
-        a = -7 + random();
-        // let headingModifier = -PI * this.s;
+    // if (this.currentValue < 0.5) {
+    //     a = 2 + random();
+    //     // let headingModifier = PI * this.s;
+    // } else {
+    //     a = -2 + random();
+    //     // let headingModifier = -PI * this.s;
+    // }
+    if (this.currentValue > 0 && this.currentValue < 0.25) {
+        a = 2 + random();
+    } else if (this.currentValue > 0.25 && this.currentValue < 0.5) {
+        a = -2 + random();
+    } else if (this.currentValue > 0.5 && this.currentValue < 0.75) {
+        a = 5 + random();
+    } else if (this.currentValue > 0.75 && this.currentValue < 1) {
+        a = -5 + random();
     }
-    a *= this.currentValue * 5;
+
+
+    a *= this.currentValue * 1;
     // a = PI /  10;
     // var a = this.heading + headingModifier;
     var x = cos(a) * r;
