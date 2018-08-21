@@ -20,6 +20,7 @@ function setup() {
     canvasDOM = document.getElementById('defaultCanvas0');
     graphics = createGraphics(width * 2, height * 2);
     turtlePath = createGraphics(width * 2, height * 2);
+    // canvasDOM = turtlePath.canvas;
     // turtlePath.blendMode(turtlePath.BURN);
     turtlePath.background(255);
     turtlePath.stroke(0);
@@ -31,6 +32,8 @@ function setup() {
         noLoop();
     }
     seed = random(0, 99);
+    // seed = 34.41719031221789;
+    seed = 61.813779498236926;
     noiseSeed(seed);
     tileWidth = width / gridXAmount - 1 / gridXAmount;
     turtle = new Turtle(width / 2, height / 2);
