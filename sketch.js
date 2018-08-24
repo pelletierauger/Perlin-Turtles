@@ -33,7 +33,14 @@ function setup() {
     }
     seed = random(0, 99);
     // seed = 34.41719031221789;
-    seed = 61.813779498236926;
+    // seed = 61.813779498236926;
+    // seed = 57.677245280529235;
+    // seed = 62.18022654507042;
+    // seed = 34.32327235922706;
+    // seed = 81.57620468149568;
+    // seed = 55.25271887883502;
+    // seed = 40.35035789800042;
+    // seed = 95.74359133779816;
     noiseSeed(seed);
     tileWidth = width / gridXAmount - 1 / gridXAmount;
     turtle = new Turtle(width / 2, height / 2);
@@ -41,6 +48,7 @@ function setup() {
         for (var y = 0; y < gridYAmount; y++) {
             var oneDValue = x + (y * gridXAmount);
             let value = noise(x * 0.025, y * 0.025);
+            // let value = (noise(x * 0.025, y * 0.025) * 0.75) + (random() * 0.25);
             graphics.fill(value * 255);
             grid[oneDValue] = value;
             graphics.rect(x * tileWidth, y * tileWidth, tileWidth + 1, tileWidth + 1);
@@ -50,9 +58,9 @@ function setup() {
 }
 
 function draw() {
-    // if (frameCount % 5 == 0) {
-    //     turtle.pos = { x: random(width), y: random(height) };
-    // }
+    if (frameCount % 5 == 0) {
+        turtle.pos = { x: random(width), y: random(height) };
+    }
     // turtlePath.background(255, 10);
     // clear();
     // turtle.s = sin(frameCount / 10) * 5;

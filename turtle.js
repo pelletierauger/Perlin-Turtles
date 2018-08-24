@@ -1,9 +1,13 @@
 let Turtle = function(x, y) {
-    this.pos = { x: x, y: y };
+    this.pos = { x: x || 0, y: y || 0 };
     this.heading = 0;
     this.location = { x: 0, y: 0 };
     this.currentValue = 0;
     this.s = 2;
+};
+
+Turtle.prototype.setPos = function(x, y) {
+    this.pos = { x: x, y: y };
 };
 
 Turtle.prototype.show = function() {
@@ -32,14 +36,17 @@ Turtle.prototype.walk = function() {
     r = max(10, this.currentValue * 5);
     // r = sin(this.currentValue * 100) * 15;
     r = 0.5;
+    r *= this.currentValue * 5;
     if (this.currentValue < 0.5) {
         a = 0 + random();
         // let headingModifier = PI * this.s;
+        a *= this.currentValue * 2;
     } else {
         a = -7 + random();
         // let headingModifier = -PI * this.s;
+        a *= this.currentValue * 4;
     }
-    a *= this.currentValue * 5;
+
     // a = PI /  10;
     // var a = this.heading + headingModifier;
     var x = cos(a) * r;
