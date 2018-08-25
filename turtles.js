@@ -1,1 +1,3 @@
-let firstTurtle = new Turtle();
+let firstTurtle = new Turtle({
+    name: "calm"
+});

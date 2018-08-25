@@ -1,9 +1,13 @@
-let Turtle = function(x, y) {
-    this.pos = { x: x || 0, y: y || 0 };
+let turtles = [];
+
+let Turtle = function(obj) {
+    this.name = obj.name;
+    // this.pos = { x: x || 0, y: y || 0 };
     this.heading = 0;
     this.location = { x: 0, y: 0 };
     this.currentValue = 0;
     this.s = 2;
+    turtles.push(this);
 };
 
 Turtle.prototype.setPos = function(x, y) {

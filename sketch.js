@@ -6,11 +6,9 @@ let graphics;
 let turtlePath;
 let seed;
 
-var gridScalar = 16;
-var gridXAmount = 16 * gridScalar;
-var gridYAmount = 9 * gridScalar;
-var tileWidth;
-var grid = [];
+let gridScalar, gridXAmount, gridYAmount;
+let tileWidth;
+let grid = [];
 let turtle;
 
 function setup() {
@@ -31,7 +29,22 @@ function setup() {
     if (!looping) {
         noLoop();
     }
-    seed = random(0, 99);
+
+    gridScalar = scene.gridScalar;
+    gridXAmount = 16 * gridScalar;
+    gridYAmount = 9 * gridScalar;
+    tileWidth = width / gridXAmount - 1 / gridXAmount;
+
+    seed = scene.noiseSeed;
+    noiseSeed(seed);
+
+    for (let i = 0; i < turtles.length; i++) {
+        if (turtles[i].name == scene.turtleName) {
+            turtle = turtles[i];
+            turtle.setPos(width / 2, height / 2);
+        }
+    }
+
     // seed = 34.41719031221789;
     // seed = 61.813779498236926;
     // seed = 57.677245280529235;
@@ -41,13 +54,12 @@ function setup() {
     // seed = 55.25271887883502;
     // seed = 40.35035789800042;
     // seed = 95.74359133779816;
-    noiseSeed(seed);
-    tileWidth = width / gridXAmount - 1 / gridXAmount;
-    turtle = new Turtle(width / 2, height / 2);
+
+    // turtle = new Turtle(width / 2, height / 2);
     for (var x = 0; x < gridXAmount; x++) {
         for (var y = 0; y < gridYAmount; y++) {
             var oneDValue = x + (y * gridXAmount);
-            let value = noise(x * 0.025, y * 0.025);
+            let value = noise(x * scene.noiseScalar, y * scene.noiseScalar);
             // let value = (noise(x * 0.025, y * 0.025) * 0.75) + (random() * 0.25);
             graphics.fill(value * 255);
             grid[oneDValue] = value;
