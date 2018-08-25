@@ -1,7 +1,7 @@
 let turtles = [];
 
-let Turtle = function(obj) {
-    this.name = obj.name;
+let Turtle = function() {
+    // this.name = obj.name;
     // this.pos = { x: x || 0, y: y || 0 };
     this.heading = 0;
     this.location = { x: 0, y: 0 };

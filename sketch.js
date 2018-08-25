@@ -38,12 +38,8 @@ function setup() {
     seed = scene.noiseSeed;
     noiseSeed(seed);
 
-    for (let i = 0; i < turtles.length; i++) {
-        if (turtles[i].name == scene.turtleName) {
-            turtle = turtles[i];
-            turtle.setPos(width / 2, height / 2);
-        }
-    }
+    turtle = scene.turtle;
+    turtle.setPos(width / 2, height / 2);
 
     // seed = 34.41719031221789;
     // seed = 61.813779498236926;
@@ -55,7 +51,6 @@ function setup() {
     // seed = 40.35035789800042;
     // seed = 95.74359133779816;
 
-    // turtle = new Turtle(width / 2, height / 2);
     for (var x = 0; x < gridXAmount; x++) {
         for (var y = 0; y < gridYAmount; y++) {
             var oneDValue = x + (y * gridXAmount);
