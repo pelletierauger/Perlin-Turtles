@@ -59,13 +59,16 @@ let classic3 = new Scene({
 });
 
 let intro = new Scene({
-    name: "intro",
+    name: "intro-different-speed",
     gridScalar: 16,
     turtle: firstTurtle,
     noiseSeed: 95.74359133779816,
     noiseSeed: Math.random() * 1000,
-    // noiseSeed: 563.625818845061,
-    noiseSeed: 731.8821533848186,
+
+    // The classic seed :
+    noiseSeed: 563.625818845061,
+
+    // noiseSeed: 731.8821533848186,
     noiseScalar: 0.0025,
     noiseSpeed: 0.008,
     framePasses: 200
@@ -153,4 +156,18 @@ let star2 = new Scene({
     // 77.75688183883678
 });
 
-let scene = star2;
+let shiningMountains = new Scene({
+    gridScalar: 16,
+    turtle: cartesianTurtle,
+    noiseSeed: Math.random() * 1000,
+    noiseSeed: 446.669391297533,
+    // noiseSeed: 383.163568608011,
+    noiseScalar: 0.025,
+    noiseSpeed: 0.008,
+    framePasses: 800
+    // 383.163568608011
+    // 301.0739706782297
+    // 150.81636339586325
+});
+
+let scene = intro;
