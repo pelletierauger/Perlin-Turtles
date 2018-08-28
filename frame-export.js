@@ -11,14 +11,17 @@ for (let i = 0; i < query.length; i++) {
 let exporting = (GET["exporting"] && GET["exporting"] == "true") ? true : false;
 
 function frameExport() {
+    var frameName = scene.fileName;
     var formattedFrameCount = "" + frameToPrint;
     while (formattedFrameCount.length < 5) {
         formattedFrameCount = "0" + formattedFrameCount;
     }
+    frameName += "-" + formattedFrameCount;
     var dataUrl = canvasDOM.toDataURL();
     var data = {
         dataUrl: dataUrl,
-        name: fileName + "-" + formattedFrameCount
+        folder: scene.folderPath + scene.fileName + "/",
+        name: frameName
     }
     socket.emit('image', data);
 }

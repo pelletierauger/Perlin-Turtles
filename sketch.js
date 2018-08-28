@@ -1,6 +1,6 @@
 let looping = true;
 let socket, cnvs, ctx, canvasDOM;
-let fileName = "./frames/version-5/version-5";
+// let fileName = `./frames/${scene.name}/${scene.name}`;
 let maxFrames = Infinity;
 let graphics;
 let turtlePath;
@@ -65,7 +65,7 @@ function setup() {
         for (var y = 0; y < gridYAmount; y++) {
             var oneDValue = x + (y * gridXAmount);
             // let value = noise(x * scene.noiseScalar, y * scene.noiseScalar);
-            let value = noise(x * scene.noiseScalar, y * scene.noiseScalar, 1 / 250000);
+            let value = noise(x * scene.noiseScalar, y * scene.noiseScalar, frameToPrint * scene.noiseSpeed);
             // let value = (noise(x * 0.025, y * 0.025) * 0.75) + (random() * 0.25);
             graphics.fill(value * 255);
             grid[oneDValue] = value;
@@ -89,7 +89,7 @@ function draw() {
         turtle.walk();
     }
     // image(graphics, 0, 0, width, height);
-    if (framePasses > 800) {
+    if (framePasses > scene.framePasses) {
         console.log("respawnTimes :" + respawnTimes);
         respawnTimes = 0;
         grid = [];
@@ -97,7 +97,7 @@ function draw() {
             for (var y = 0; y < gridYAmount; y++) {
                 var oneDValue = x + (y * gridXAmount);
                 // let value = noise(x * scene.noiseScalar, y * scene.noiseScalar, frameCount / 1000);
-                let value = noise(x * scene.noiseScalar, y * scene.noiseScalar, frameCount / 250000);
+                let value = noise(x * scene.noiseScalar, y * scene.noiseScalar, (frameToPrint + 1) * scene.noiseSpeed);
                 // let value = noise(x * scene.noiseScalar, y * scene.noiseScalar);
                 // let value = (noise(x * 0.025, y * 0.025) * 0.75) + (random() * 0.25);
                 graphics.fill(value * 255);
