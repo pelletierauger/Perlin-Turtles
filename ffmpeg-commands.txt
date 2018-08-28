@@ -1,0 +1,19 @@
+ffmpeg -f image2 -framerate 15 -i ./frames/version-one-%05d.png -c:v libx264 -s 2560x1440 -pix_fmt yuv420p /Volumes/WD001/animation-video-renders/perlin-turtles-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/version-one-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p /Volumes/WD001/animation-video-renders/perlin-turtles-negate-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/version-two/version-two-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p .video-renders/perlin-turtles-negate-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/version-two/version-two-%05d.png -c:v libx264 -s 2560x1440 -pix_fmt yuv420p ./video-renders/perlin-turtles-v2-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/version-3/version-3-%05d.png -c:v libx264 -s 2560x1440 -pix_fmt yuv420p ./video-renders/perlin-turtles-v3-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/version-4/version-4-%05d.png -c:v libx264 -s 2560x1440 -pix_fmt yuv420p ./video-renders/perlin-turtles-v4-15fps.mp4
+
+
+ffmpeg -f image2 -framerate 15 -i ./frames/version-5/version-5-%05d.png -c:v libx264 -s 2560x1440 -pix_fmt yuv420p ./video-renders/perlin-turtles-v5-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/version-5/version-5-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/perlin-turtles-v5-negate-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/version-4/version-4-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/perlin-turtles-v4-negate-15fps.mp4
+
