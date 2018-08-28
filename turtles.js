@@ -144,3 +144,93 @@ cartesianTurtle.walk = function() {
         // this.heading = random(TWO_PI);
     }
 };
+
+let starTurtle = new Turtle();
+
+starTurtle.walk = function() {
+    this.s = 0.5;
+    let headingModifier = map(this.currentValue, 0, 0.5, -PI * this.s, PI * this.s);
+
+    var r = map(this.currentValue, 0, 1, tileWidth * 0.1, tileWidth * 1);
+    r = max(10, this.currentValue * 5);
+    // r = sin(this.currentValue * 100) * 15;
+    r = 0.5;
+    r *= this.currentValue * 5;
+    if (this.currentValue < 0.5) {
+        a = 2 + random();
+        // let headingModifier = PI * this.s;
+        a *= this.currentValue * 1;
+    } else {
+        a = -1 + random();
+        // let headingModifier = -PI * this.s;
+        a *= this.currentValue * 1;
+    }
+
+    // a = PI /  10;
+    // var a = this.heading + headingModifier;
+    var x = cos(a) * r;
+    var y = sin(a) * r;
+    // console.log(x, y);
+    let padding = 10 + random(4);
+    if (this.pos.x + x > padding &&
+        this.pos.x + x < width - padding &&
+        this.pos.y + y > padding &&
+        this.pos.y + y < height - padding) {
+        turtlePath.beginShape();
+        turtlePath.vertex(this.pos.x, this.pos.y);
+        this.pos.x += x;
+        this.pos.y += y;
+        turtlePath.vertex(this.pos.x, this.pos.y);
+        turtlePath.endShape();
+        this.heading += headingModifier;
+    } else {
+        // this.pos = { x: width / 2, y: height / 2 };
+        this.pos = { x: random(width), y: random(height) };
+        // this.heading = random(TWO_PI);
+    }
+};
+
+let starTurtle2 = new Turtle();
+
+starTurtle2.walk = function() {
+    this.s = 0.5;
+    let headingModifier = map(this.currentValue, 0, 0.5, -PI * this.s, PI * this.s);
+
+    var r = map(this.currentValue, 0, 1, tileWidth * 0.1, tileWidth * 1);
+    r = max(10, this.currentValue * 5);
+    // r = sin(this.currentValue * 100) * 15;
+    r = 0.5;
+    r *= this.currentValue * 5;
+    if (this.currentValue < 0.5) {
+        a = 5 + random();
+        // let headingModifier = PI * this.s;
+        // a *= this.currentValue * 1;
+    } else {
+        a = -5 + random();
+        // let headingModifier = -PI * this.s;
+        // a *= this.currentValue * 1;
+    }
+
+    // a = PI /  10;
+    // var a = this.heading + headingModifier;
+    var x = cos(a) * r;
+    var y = sin(a) * r;
+    // console.log(x, y);
+    let padding = 10 + random(4);
+    if (this.pos.x + x > padding &&
+        this.pos.x + x < width - padding &&
+        this.pos.y + y > padding &&
+        this.pos.y + y < height - padding) {
+        turtlePath.beginShape();
+        turtlePath.vertex(this.pos.x, this.pos.y);
+        this.pos.x += x;
+        this.pos.y += y;
+        turtlePath.vertex(this.pos.x, this.pos.y);
+        turtlePath.endShape();
+        this.heading += headingModifier;
+    } else {
+        // this.pos = { x: width / 2, y: height / 2 };
+        this.pos = { x: random(width), y: random(height) };
+        // this.heading = random(TWO_PI);
+    }
+};
