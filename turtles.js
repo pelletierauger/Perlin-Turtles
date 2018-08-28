@@ -139,7 +139,8 @@ cartesianTurtle.walk = function() {
         this.heading += headingModifier;
     } else {
         // this.pos = { x: width / 2, y: height / 2 };
-        this.pos = { x: random(width), y: random(height) };
+        this.pos = { x: xRespawn[respawnTimes], y: yRespawn[respawnTimes] };
+        respawnTimes++;
         // this.heading = random(TWO_PI);
     }
 };

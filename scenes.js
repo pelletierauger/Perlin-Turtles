@@ -37,6 +37,7 @@ let lessPerliny = new Scene({
     gridScalar: 16,
     turtle: cartesianTurtle,
     noiseSeed: Math.random() * 1000,
+    noiseSeed: 446.669391297533,
     // noiseSeed: 383.163568608011,
     noiseScalar: 0.025
     // 383.163568608011

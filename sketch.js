@@ -1,7 +1,7 @@
 let looping = true;
 let socket, cnvs, ctx, canvasDOM;
-let fileName = "./frames/sketch";
-let maxFrames = 20;
+let fileName = "./frames/version-5/version-5";
+let maxFrames = Infinity;
 let graphics;
 let turtlePath;
 let seed;
@@ -10,6 +10,11 @@ let gridScalar, gridXAmount, gridYAmount;
 let tileWidth;
 let grid = [];
 let turtle;
+let frameToPrint = 1;
+let framePasses = 0;
+let respawnTimes = 0;
+let xRespawn = [];
+let yRespawn = [];
 
 function setup() {
     socket = io.connect('http://localhost:8080');
@@ -28,6 +33,11 @@ function setup() {
     noStroke();
     if (!looping) {
         noLoop();
+    }
+
+    for (let i = 0; i < 1257606; i++) {
+        xRespawn.push(random(width));
+        yRespawn.push(random(height));
     }
 
     gridScalar = scene.gridScalar;
@@ -54,7 +64,8 @@ function setup() {
     for (var x = 0; x < gridXAmount; x++) {
         for (var y = 0; y < gridYAmount; y++) {
             var oneDValue = x + (y * gridXAmount);
-            let value = noise(x * scene.noiseScalar, y * scene.noiseScalar);
+            // let value = noise(x * scene.noiseScalar, y * scene.noiseScalar);
+            let value = noise(x * scene.noiseScalar, y * scene.noiseScalar, 1 / 250000);
             // let value = (noise(x * 0.025, y * 0.025) * 0.75) + (random() * 0.25);
             graphics.fill(value * 255);
             grid[oneDValue] = value;
@@ -66,24 +77,51 @@ function setup() {
 
 function draw() {
     if (frameCount % 5 == 0) {
-        turtle.pos = { x: random(width), y: random(height) };
+        turtle.pos = { x: xRespawn[respawnTimes], y: yRespawn[respawnTimes] };
+        respawnTimes++;
     }
     // turtlePath.background(255, 10);
     // clear();
     // turtle.s = sin(frameCount / 10) * 5;
-    background(255);
+
     for (let i = 0; i < 2000; i++) {
         turtle.getLocation();
         turtle.walk();
     }
     // image(graphics, 0, 0, width, height);
-    image(turtlePath, 0, 0, width, height);
+    if (framePasses > 800) {
+        console.log("respawnTimes :" + respawnTimes);
+        respawnTimes = 0;
+        grid = [];
+        for (var x = 0; x < gridXAmount; x++) {
+            for (var y = 0; y < gridYAmount; y++) {
+                var oneDValue = x + (y * gridXAmount);
+                // let value = noise(x * scene.noiseScalar, y * scene.noiseScalar, frameCount / 1000);
+                let value = noise(x * scene.noiseScalar, y * scene.noiseScalar, frameCount / 250000);
+                // let value = noise(x * scene.noiseScalar, y * scene.noiseScalar);
+                // let value = (noise(x * 0.025, y * 0.025) * 0.75) + (random() * 0.25);
+                graphics.fill(value * 255);
+
+                grid[oneDValue] = value;
+                graphics.rect(x * tileWidth, y * tileWidth, tileWidth + 1, tileWidth + 1);
+            }
+        }
+        background(255);
+        image(turtlePath, 0, 0, width, height);
+        framePasses = 0;
+        turtlePath.background(255);
+        turtle.setPos(width / 2, height / 2);
+        if (exporting && frameCount < maxFrames) {
+            frameExport();
+        }
+        frameToPrint++;
+    }
+    framePasses++;
+
 
     // turtle.show();
     // turtle.showLocation();
-    if (exporting && frameCount < maxFrames) {
-        frameExport();
-    }
+
 }
 
 function keyPressed() {
