@@ -115,12 +115,15 @@ let classicAnimated = new Scene({
 });
 
 let oily = new Scene({
+    name: "oily",
     gridScalar: 16,
     turtle: cartesianTurtle,
     noiseSeed: 838.3063237565376,
     noiseSeed: Math.random() * 1000,
-    noiseScalar: 0.005
-    // 22.44579857348161
+    // noiseSeed: 183.7066265870173, doesn’t work
+    noiseScalar: 0.005,
+    noiseSpeed: 0.016,
+    noiseSeed: 22.44579857348161
     // 431.191359098023
     // 183.7066265870173
     // 636.5211929757423
@@ -133,6 +136,7 @@ let star = new Scene({
     gridScalar: 16,
     turtle: starTurtle,
     noiseSeed: Math.random() * 1000,
+    noiseSeed: 67.43430974060716,
     noiseScalar: 0.025,
     noiseSpeed: 0.008,
     framePasses: 200
@@ -146,8 +150,8 @@ let star2 = new Scene({
     turtle: starTurtle2,
     noiseSeed: Math.random() * 1000,
     // noiseSeed: 453.42929689632894,
-    // noiseSeed: 77.75688183883678,
-    noiseSeed: 508.1951110759904,
+    noiseSeed: 77.75688183883678,
+    // noiseSeed: 508.1951110759904,
     noiseScalar: 0.025,
     noiseSpeed: 0.008,
     framePasses: 200
@@ -170,4 +174,21 @@ let shiningMountains = new Scene({
     // 150.81636339586325
 });
 
-let scene = intro;
+let introSyncopated = new Scene({
+    name: "intro-different-speed",
+    gridScalar: 16,
+    turtle: firstTurtle,
+    noiseSeed: 95.74359133779816,
+    noiseSeed: Math.random() * 1000,
+
+    // The classic seed :
+    noiseSeed: 563.625818845061,
+
+    // noiseSeed: 731.8821533848186,
+    noiseScalar: 0.0025,
+    noiseSpeed: 0.008,
+    framePasses: 200
+    // 563.625818845061
+});
+
+let scene = oily;
