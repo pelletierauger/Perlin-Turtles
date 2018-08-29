@@ -280,4 +280,18 @@ let muddyTwo = new Scene({
     noiseSeed: 952.3953385071355
 });
 
-let scene = muddyTwo;
+let muddyThree = new Scene({
+    name: "muddy-three",
+    gridScalar: 16,
+    turtle: thirdTurtle,
+    // noiseSeed: 872.5138762106428,
+    noiseSeed: Math.random() * 1000,
+    noiseScalar: 0.025,
+    noiseSpeed: 0.08,
+    framePasses: 200,
+    // 933.9444754732433
+    // 300.74801295868656
+    noiseSeed: 952.3953385071355
+});
+
+let scene = muddyThree;
