@@ -294,4 +294,14 @@ let muddyThree = new Scene({
     noiseSeed: 952.3953385071355
 });
 
-let scene = muddyThree;
+let vallotton = new Scene({
+    name: "vallotton",
+    gridScalar: 16,
+    turtle: vallottonTurtle,
+    noiseSeed: Math.random() * 1000,
+    noiseScalar: 0.025,
+    noiseSpeed: 0.08,
+    framePasses: 200,
+});
+
+let scene = vallotton;
