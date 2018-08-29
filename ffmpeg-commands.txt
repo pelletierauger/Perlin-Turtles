@@ -17,3 +17,28 @@ ffmpeg -f image2 -framerate 15 -i ./frames/version-5/version-5-%05d.png -c:v lib
 
 ffmpeg -f image2 -framerate 15 -i ./frames/version-4/version-4-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/perlin-turtles-v4-negate-15fps.mp4
 
+ffmpeg -f image2 -framerate 15 -i ./frames/version-6/version-6-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/perlin-turtles-v6-negate-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/intro/intro-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/intro-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/muscular-pyramid/muscular-pyramid-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/muscular-pyramid-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/intro/intro-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/intro-newseed-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/star2/star2-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/star2-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/intro-different-speed/intro-different-speed-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/intro-different-speed-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/oily/oily-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/oily-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/muddy/muddy-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/muddy-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/cauliflower/cauliflower-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/cauliflower-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/cauliflower-ciel-furieux/cauliflower-ciel-furieux-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/cauliflower-ciel-furieux-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/star/star-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/star-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/muddy-two/muddy-two-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/muddy-two-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/muddy-three/muddy-three-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/muddy-three-15fps.mp4
