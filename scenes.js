@@ -114,6 +114,7 @@ let classicAnimated = new Scene({
     // 993.6234906155994
 });
 
+//Très beau
 let oily = new Scene({
     name: "oily",
     gridScalar: 16,
@@ -191,4 +192,92 @@ let introSyncopated = new Scene({
     // 563.625818845061
 });
 
-let scene = oily;
+let muddy = new Scene({
+    name: "muddy",
+    gridScalar: 16,
+    turtle: thirdTurtle,
+    noiseSeed: 872.5138762106428,
+    noiseScalar: 0.025,
+    noiseSpeed: 0.008,
+    framePasses: 200
+});
+
+let cauliflower = new Scene({
+    name: "cauliflower",
+    gridScalar: 16,
+    turtle: cartesianTurtle,
+    noiseSeed: Math.random() * 1000,
+    // noiseSeed: 446.669391297533,
+    noiseSeed: 383.163568608011,
+    noiseScalar: 0.025,
+    noiseSpeed: 0.008,
+    framePasses: 200,
+    // 383.163568608011
+    // 301.0739706782297
+    noiseSeed: 301.0739706782297,
+    noiseSeed: 150.81636339586325,
+    noiseSeed: Math.random() * 1000,
+    // 150.81636339586325
+    // Not bad 898.8370523107371
+    // beautiful 838.6759861379101
+    noiseSeed: 838.6759861379101
+    // ciel furieux 857.7151012419406
+    // not bad 698.396586634108
+    // fossé 831.4700132677953
+    // le tigre 637.2492791437037
+    // elephant 89.26919160082724
+    // fondant 54.15451246066905
+    // herzog1 304.38690362574295
+    // herzog2 165.15587325003423
+    // herzog3 70.13700158463254
+    // better elephant 104.68917438599878
+});
+
+let cauliflowerCielFurieux = new Scene({
+    name: "cauliflower-ciel-furieux",
+    gridScalar: 16,
+    turtle: cartesianTurtle,
+    noiseSeed: Math.random() * 1000,
+    // noiseSeed: 446.669391297533,
+    noiseSeed: 383.163568608011,
+    noiseScalar: 0.025,
+    noiseSpeed: 0.016,
+    framePasses: 200,
+    // 383.163568608011
+    // 301.0739706782297
+    noiseSeed: 301.0739706782297,
+    noiseSeed: 150.81636339586325,
+    noiseSeed: Math.random() * 1000,
+    // 150.81636339586325
+    // Not bad 898.8370523107371
+    // beautiful 838.6759861379101
+    noiseSeed: 838.6759861379101,
+    // ciel furieux 857.7151012419406
+    noiseSeed: 857.7151012419406,
+    // not bad 698.396586634108
+    // fossé 831.4700132677953
+    // le tigre 637.2492791437037
+    // elephant 89.26919160082724
+    // fondant 54.15451246066905
+    noiseSeed: 304.38690362574295
+    // herzog1 304.38690362574295
+    // herzog2 165.15587325003423
+    // herzog3 70.13700158463254
+    // better elephant 104.68917438599878
+});
+
+let muddyTwo = new Scene({
+    name: "muddy-two",
+    gridScalar: 16,
+    turtle: thirdTurtle,
+    // noiseSeed: 872.5138762106428,
+    noiseSeed: Math.random() * 1000,
+    noiseScalar: 0.025,
+    noiseSpeed: 0.08,
+    framePasses: 200,
+    // 933.9444754732433
+    // 300.74801295868656
+    noiseSeed: 952.3953385071355
+});
+
+let scene = muddyTwo;
