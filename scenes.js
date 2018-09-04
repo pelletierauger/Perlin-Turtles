@@ -425,4 +425,48 @@ let starCartesian = new Scene({
     // 67.43430974060716
 });
 
-let scene = starCartesian;
+let introFadein = new Scene({
+    name: "intro-fade-in",
+    gridScalar: 16,
+    turtle: firstTurtle,
+    noiseSeed: 95.74359133779816,
+    noiseSeed: Math.random() * 1000,
+
+    // The classic seed :
+    noiseSeed: 563.625818845061,
+
+    // noiseSeed: 731.8821533848186,
+    noiseScalar: 0.0025,
+    noiseSpeed: 0.008,
+    framePasses: 200
+    // 563.625818845061
+});
+
+let muscularPyramid2Experimental = new Scene({
+    name: "muscular-pyramid2-experimental",
+    gridScalar: 16,
+    turtle: secondTurtle,
+    noiseSeed: 95.74359133779816,
+    noiseSeed: Math.random() * 1000,
+    noiseScalar: 0.0125,
+    noiseSpeed: 0.016,
+    framePasses: 400,
+    // 819.6741344145939
+    // 837.9239932202503
+    noiseSeed: 630.305062336532
+});
+
+let starFadeOut = new Scene({
+    name: "star-fade-out",
+    gridScalar: 16,
+    turtle: starTurtle,
+    noiseSeed: Math.random() * 1000,
+    noiseSeed: 67.43430974060716,
+    noiseScalar: 0.025,
+    noiseSpeed: 0.008,
+    framePasses: 200
+    // 563.625818845061
+    // 67.43430974060716
+});
+
+let scene = introFadein;

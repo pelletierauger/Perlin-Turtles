@@ -75,16 +75,27 @@ function setup() {
     // image(graphics, 0, 0, width, height);
 }
 
+let iterations = 2000;
+
 function draw() {
+
+    if (frameToPrint < 200) {
+        scene.framePasses = moreCosineFade(frameToPrint, 200, 200);
+        iterations = moreCosineFade(frameToPrint, 200, 2000);
+    } else if (frameToPrint == 200) {
+        scene.framePasses = 200;
+        iterations = 2000;
+    }
     if (frameCount % 5 == 0) {
-        turtle.pos = { x: xRespawn[respawnTimes], y: yRespawn[respawnTimes] };
-        respawnTimes++;
+        turtle.pos = { x: random(width), y: random(height) };
+        // turtle.pos = { x: xRespawn[respawnTimes], y: yRespawn[respawnTimes] };
+        // respawnTimes++;
     }
     // turtlePath.background(255, 10);
     // clear();
     // turtle.s = sin(frameCount / 10) * 5;
 
-    for (let i = 0; i < 2000; i++) {
+    for (let i = 0; i < iterations; i++) {
         turtle.getLocation();
         turtle.walk();
     }
@@ -110,7 +121,8 @@ function draw() {
         image(turtlePath, 0, 0, width, height);
         framePasses = 0;
         turtlePath.background(255);
-        turtle.setPos(width / 2, height / 2);
+        // turtle.setPos(width / 2, height / 2);
+        turtle.pos = { x: random(width), y: random(height) };
         if (exporting && frameCount < maxFrames) {
             frameExport();
         }
@@ -150,4 +162,17 @@ function keyPressed() {
     //     turtle.s = random(0.1, 2);
     //     turtlePath.stroke(random(255), random(255), random(255));
     // }
+}
+
+function cosineFade(sum, dur, scale) {
+    var range = map(sum, 0, dur, 0, 1);
+    var coFade = map(pow(cos(range), 0.000001), 1, 0.9999993843737192, 0, scale);
+    return coFade;
+}
+
+function moreCosineFade(sum, dur, scale) {
+    var range = map(sum, 0, dur, 0, 1);
+    var coFade = map(pow(cos(range), 0.000001), 1, 0.9999993843737192, 0, 1);
+    coFade = map(cos(coFade), 1, 0.5403023058681398, 0, scale);
+    return coFade;
 }
