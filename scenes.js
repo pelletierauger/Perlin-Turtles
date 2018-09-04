@@ -299,9 +299,130 @@ let vallotton = new Scene({
     gridScalar: 16,
     turtle: vallottonTurtle,
     noiseSeed: Math.random() * 1000,
-    noiseScalar: 0.025,
-    noiseSpeed: 0.08,
+    noiseScalar: 0.005,
+    noiseSpeed: 0.008,
     framePasses: 200,
+    // 497.6369746216145
+    noiseSeed: 940.2010476819802
 });
 
-let scene = vallotton;
+let vallotton2 = new Scene({
+    name: "vallotton2",
+    gridScalar: 16,
+    turtle: vallottonTurtle,
+    noiseSeed: Math.random() * 1000,
+    noiseScalar: 0.01,
+    noiseSpeed: 0.008,
+    framePasses: 200,
+    // 497.6369746216145
+    // noiseSeed: 940.2010476819802
+    noiseSeed: 619.5481864193813
+});
+
+let nonCartesianCauliflower = new Scene({
+    name: "non-cartesian-cauliflower",
+    gridScalar: 16,
+    turtle: nonCartesianTurtle,
+    noiseSeed: Math.random() * 1000,
+    // noiseSeed: 446.669391297533,
+    noiseSeed: 383.163568608011,
+    noiseScalar: 0.025,
+    noiseSpeed: 0.008,
+    framePasses: 200,
+    // 383.163568608011
+    // 301.0739706782297
+    noiseSeed: 301.0739706782297,
+    noiseSeed: 150.81636339586325,
+    noiseSeed: Math.random() * 1000,
+    // 150.81636339586325
+    // Not bad 898.8370523107371
+    // beautiful 838.6759861379101
+    noiseSeed: 838.6759861379101
+    // ciel furieux 857.7151012419406
+    // not bad 698.396586634108
+    // fossé 831.4700132677953
+    // le tigre 637.2492791437037
+    // elephant 89.26919160082724
+    // fondant 54.15451246066905
+    // herzog1 304.38690362574295
+    // herzog2 165.15587325003423
+    // herzog3 70.13700158463254
+    // better elephant 104.68917438599878
+});
+
+let oilyNonCartesian = new Scene({
+    name: "oily-non-cartesian",
+    gridScalar: 16,
+    turtle: nonCartesianTurtle,
+    noiseSeed: 838.3063237565376,
+    noiseSeed: Math.random() * 1000,
+    // noiseSeed: 183.7066265870173, doesn’t work
+    noiseScalar: 0.005,
+    noiseSpeed: 0.016,
+    noiseSeed: 22.44579857348161
+    // 431.191359098023
+    // 183.7066265870173
+    // 636.5211929757423
+    // 974.1991913443986
+    // 975.4769439735837
+});
+
+let muscularPyramid2 = new Scene({
+    name: "muscular-pyramid2",
+    gridScalar: 16,
+    turtle: secondTurtle,
+    noiseSeed: 95.74359133779816,
+    noiseSeed: Math.random() * 1000,
+    noiseScalar: 0.0125,
+    noiseSpeed: 0.016,
+    framePasses: 400,
+    // 819.6741344145939
+    // 837.9239932202503
+    noiseSeed: 630.305062336532
+});
+
+let muscularPyramid2Cartesian = new Scene({
+    name: "muscular-pyramid2-cartesian",
+    gridScalar: 16,
+    turtle: secondTurtleCartesian,
+    noiseSeed: 95.74359133779816,
+    noiseSeed: Math.random() * 1000,
+    noiseScalar: 0.0125,
+    noiseSpeed: 0.016,
+    framePasses: 400,
+    // 819.6741344145939
+    // 837.9239932202503
+    noiseSeed: 630.305062336532
+});
+
+let introCartesian = new Scene({
+    name: "intro-different-speed-cartesian",
+    gridScalar: 16,
+    turtle: firstTurtleCartesian,
+    noiseSeed: 95.74359133779816,
+    noiseSeed: Math.random() * 1000,
+
+    // The classic seed :
+    noiseSeed: 563.625818845061,
+
+    // noiseSeed: 731.8821533848186,
+    noiseScalar: 0.0025,
+    noiseSpeed: 0.008,
+    framePasses: 200
+    // 563.625818845061
+});
+
+let starCartesian = new Scene({
+    name: "star-cartesian",
+    gridScalar: 16,
+    turtle: starTurtleCartesian,
+    noiseSeed: Math.random() * 1000,
+    noiseSeed: 67.43430974060716,
+    noiseScalar: 0.025,
+    noiseSpeed: 0.008,
+    framePasses: 200
+    // 563.625818845061
+    // 67.43430974060716
+});
+
+let scene = starCartesian;
