@@ -2,56 +2,37 @@ var fs = require('fs');
 let computedInput = "";
 
 let sequences = [{
-        path: "/Volumes/WD001/animation-frames/game-of-life/assorted-drips-one/assorted-drips-one-",
+        path: "./frames/intro-different-speed/intro-different-speed-",
         start: 1,
-        end: 708,
+        end: 950,
         copies: 1
     },
     {
-        path: "/Volumes/WD001/genetic-render/old-render/excellent-drips-one-fadeout-2/excellent-drips-one-fadeout-2-",
+        path: "./frames/oily-non-cartesian/oily-non-cartesian-",
         start: 1,
-        end: 1188,
+        end: 633,
         copies: 1
     },
-
-    // Credit sequence
     {
-        path: "/Volumes/WD001/genetic-render/rainy-two/rainy-two-",
+        path: "./frames/non-cartesian-cauliflower/non-cartesian-cauliflower-",
         start: 1,
-        end: 1,
-        copies: 12 * 3
+        end: 817,
+        copies: 1
     },
     {
-        path: "/Volumes/WD001/genetic-render/credits-study-two/1-title-",
+        path: "./frames/muscular-pyramid2/muscular-pyramid2-",
         start: 1,
-        end: 1,
-        copies: 60
+        end: 596,
+        copies: 1
     },
     {
-        path: "/Volumes/WD001/genetic-render/credits-study-two/2-credits-",
+        path: "./frames/star/star-",
         start: 1,
-        end: 1,
-        copies: 48
-    },
-    {
-        path: "/Volumes/WD001/genetic-render/credits-study-two/3-calq-",
-        start: 1,
-        end: 1,
-        copies: 72
-    },
-    {
-        path: "/Volumes/WD001/genetic-render/credits-study-two/4-montreal-",
-        start: 1,
-        end: 1,
-        copies: 36
-    },
-    {
-        path: "/Volumes/WD001/genetic-render/rainy-two/rainy-two-",
-        start: 1,
-        end: 1,
-        copies: 18
+        end: 1144,
+        copies: 1
     }
 ];
+
 
 for (s of sequences) {
     for (let f = s.start; f <= s.end; f++) {
@@ -66,10 +47,10 @@ for (s of sequences) {
     }
 }
 
-fs.writeFile('./ffmpeg-commands/study-no-2-credits.txt', computedInput, function(err) {
+fs.writeFile('montage.txt', computedInput, function(err) {
     if (err) {
         return console.error(err);
     } else {
-        console.log('study-no-2.txt written successfully.');
+        console.log('montage.txt written successfully.');
     }
 });
