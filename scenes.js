@@ -469,4 +469,4 @@ let starFadeOut = new Scene({
     // 67.43430974060716
 });
 
-let scene = introFadein;
+let scene = starFadeOut;

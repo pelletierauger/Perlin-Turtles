@@ -10,7 +10,7 @@ let gridScalar, gridXAmount, gridYAmount;
 let tileWidth;
 let grid = [];
 let turtle;
-let frameToPrint = 1;
+let frameToPrint = 620;
 let framePasses = 0;
 let respawnTimes = 0;
 let xRespawn = [];
@@ -79,13 +79,14 @@ let iterations = 2000;
 
 function draw() {
 
-    if (frameToPrint < 200) {
-        scene.framePasses = moreCosineFade(frameToPrint, 200, 200);
-        iterations = moreCosineFade(frameToPrint, 200, 2000);
-    } else if (frameToPrint == 200) {
-        scene.framePasses = 200;
-        iterations = 2000;
+    if (frameToPrint >= 642) {
+        scene.framePasses = moreCosineFade(642, frameToPrint, 200, 200);
+        iterations = moreCosineFade(642, frameToPrint, 200, 2000);
     }
+    // else if (frameToPrint == 200) {
+    //     scene.framePasses = 200;
+    //     iterations = 2000;
+    // }
     if (frameCount % 5 == 0) {
         turtle.pos = { x: random(width), y: random(height) };
         // turtle.pos = { x: xRespawn[respawnTimes], y: yRespawn[respawnTimes] };
@@ -170,8 +171,8 @@ function cosineFade(sum, dur, scale) {
     return coFade;
 }
 
-function moreCosineFade(sum, dur, scale) {
-    var range = map(sum, 0, dur, 0, 1);
+function moreCosineFade(start, current, duration, scale) {
+    var range = map(current, start, start + duration, 1, 0);
     var coFade = map(pow(cos(range), 0.000001), 1, 0.9999993843737192, 0, 1);
     coFade = map(cos(coFade), 1, 0.5403023058681398, 0, scale);
     return coFade;
