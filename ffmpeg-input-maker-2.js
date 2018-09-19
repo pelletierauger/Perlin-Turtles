@@ -2,7 +2,7 @@ var fs = require('fs');
 let computedInput = "";
 
 let sequences = [{
-        path: "./frames/intro-different-speed/intro-different-speed-",
+        path: "./frames/intro-fade-in/intro-fade-in-",
         start: 1,
         end: 950,
         copies: 1
@@ -28,6 +28,12 @@ let sequences = [{
     {
         path: "./frames/star/star-",
         start: 1,
+        end: 619,
+        copies: 1
+    },
+    {
+        path: "./frames/star-fade-out/star-fade-out-",
+        start: 620,
         end: 842,
         copies: 1
     }
@@ -47,10 +53,10 @@ for (s of sequences) {
     }
 }
 
-fs.writeFile('montage.txt', computedInput, function(err) {
+fs.writeFile('montage2.txt', computedInput, function(err) {
     if (err) {
         return console.error(err);
     } else {
-        console.log('montage.txt written successfully.');
+        console.log('montage2.txt written successfully.');
     }
 });

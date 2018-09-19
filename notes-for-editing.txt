@@ -1,8 +1,16 @@
 Sequence of scenes
 
 Quiet beginning :
-- intro
-- oily
+- intro, 50 secondes
+- oily, 50 secondes
+- non-cartesian-cauliflower, 50 secondes
+- muscular-pyramid
+- star, 73 secondes
+
+
+- 50 + 50 + 50 + 73
+
+total : 300 secondes
 
 More intense :
 
