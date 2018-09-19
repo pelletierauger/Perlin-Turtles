@@ -42,3 +42,46 @@ ffmpeg -f image2 -framerate 15 -i ./frames/star/star-%05d.png -c:v libx264 -vf n
 ffmpeg -f image2 -framerate 15 -i ./frames/muddy-two/muddy-two-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/muddy-two-15fps.mp4
 
 ffmpeg -f image2 -framerate 15 -i ./frames/muddy-three/muddy-three-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/muddy-three-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/vallotton/vallotton-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/vallotton-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/vallotton2/vallotton2-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/vallotton2-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/non-cartesian-cauliflower/non-cartesian-cauliflower-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/non-cartesian-cauliflower-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/oily-non-cartesian/oily-non-cartesian-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/oily-non-cartesian-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/muscular-pyramid2/muscular-pyramid2-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/muscular-pyramid2-15fps.mp4
+
+ffmpeg -f concat -safe 0 -r 15 -i montage.txt -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/montage.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/muscular-pyramid2-cartesian/muscular-pyramid2-cartesian-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/muscular-pyramid2-cartesian-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/intro-different-speed-cartesian/intro-different-speed-cartesian-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/intro-different-speed-cartesian-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/star-cartesian/star-cartesian-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/star-cartesian-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/muscular-pyramid2/muscular-pyramid2-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/muscular-pyramid2-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/intro-fade-in/intro-fade-in-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/intro-fade-in-15fps.mp4
+
+
+ffmpeg -f image2 -framerate 15 -i ./frames/muscular-pyramid2-experimental/muscular-pyramid2-experimental-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/muscular-pyramid2-experimental-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/intro-fade-in/intro-fade-in-%05d.png -i /Users/guillaumepelletier/Desktop/Dropbox/Création\ musicale/Morceaux\ exportés/Le\ Pique-prune\ \(Set\ avec\ l\'Oxygen\ 61\ C4\).aif -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p -shortest ./video-renders/intro-fade-in-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/intro-fade-in/intro-fade-in-%05d.png -i /Users/guillaumepelletier/Desktop/Dropbox/Création\ musicale/Morceaux\ exportés/Le\ Pique-prune\ \(Set\ avec\ l\'Oxygen\ 61\ C4\).aif -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p -shortest ./video-renders/intro-fade-in-15fps.mp4
+
+ffmpeg -f image2 -framerate 15 -i ./frames/intro-fade-in/intro-fade-in-%05d.png -i /Users/guillaumepelletier/Desktop/Dropbox/Création\ musicale/Morceaux\ exportés/Le\ Pique-prune\ \(Set\ avec\ l\'Oxygen\ 61\ C4\).aif -c:v libx264 -vf negate -s 640x360 -pix_fmt yuv420p -shortest ./video-renders/intro-fade-in-640x360.mp4
+
+ffmpeg -f image2 -framerate 15 -start_number 620 -i ./frames/star-fade-out/star-fade-out-%05d.png -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/star-fade-out-15fps.mp4
+
+ffmpeg -f concat -safe 0 -r 15 -i montage2.txt -i /Users/guillaumepelletier/Desktop/Dropbox/Création\ musicale/Morceaux\ exportés/Le\ Pique-prune\ \(Set\ avec\ l\'Oxygen\ 61\ C4\).aif -c:v libx264 -vf negate -s 640x360 -pix_fmt yuv420p ./video-renders/montage-640x360.mp4
+
+ffmpeg -f concat -safe 0 -r 15 -i montage2.txt -i /Users/guillaumepelletier/Desktop/Dropbox/Création\ musicale/Morceaux\ exportés/Le\ Pique-prune\ \(Set\ avec\ l\'Oxygen\ 61\ C4\).aif -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/montage-2560x1440.mp4
+
+ffmpeg -f concat -safe 0 -r 15 -i credits.txt -c:v libx264 -s 2560x1440 -pix_fmt yuv420p ./video-renders/credits.mp4
+
+ffmpeg -f concat -safe 0 -r 15 -i credits.txt -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/credits.mp4
+
+ffmpeg -f concat -safe 0 -r 15 -i montage3.txt -i /Users/guillaumepelletier/Desktop/Dropbox/Création\ musicale/Morceaux\ exportés/Le\ Pique-prune\ \(Set\ avec\ l\'Oxygen\ 61\ C4\).aif -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/montage-2560x1440.mp4
