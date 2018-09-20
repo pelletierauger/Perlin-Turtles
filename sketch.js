@@ -1,7 +1,7 @@
 let looping = true;
 let socket, cnvs, ctx, canvasDOM;
-let fileName = "./frames/sketch";
-let maxFrames = 20;
+let fileName = "./frames/demo/demo";
+let maxFrames = 1300;
 let graphics;
 let turtlePath;
 
@@ -11,6 +11,7 @@ var gridYAmount = 9 * gridScalar;
 var tileWidth;
 var grid = [];
 let turtle;
+let seed;
 
 function setup() {
     socket = io.connect('http://localhost:8080');
@@ -22,13 +23,18 @@ function setup() {
     // turtlePath.blendMode(turtlePath.BURN);
     turtlePath.background(255);
     // turtlePath.stroke(255);
-    frameRate(30);
+    frameRate(2);
     background(255);
     fill(255, 50);
     noStroke();
     if (!looping) {
         noLoop();
     }
+    seed = Math.random() * 1000;
+    noiseSeed(seed);
+    // noiseSeed(145.41207006023683);
+    // 694.7928159249315
+    noiseSeed(553.5254126361093);
     tileWidth = width / gridXAmount - 1 / gridXAmount;
     turtle = new Turtle(width / 2, height / 2);
     for (var x = 0; x < gridXAmount; x++) {
