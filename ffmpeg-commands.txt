@@ -85,3 +85,16 @@ ffmpeg -f concat -safe 0 -r 15 -i credits.txt -c:v libx264 -s 2560x1440 -pix_fmt
 ffmpeg -f concat -safe 0 -r 15 -i credits.txt -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/credits.mp4
 
 ffmpeg -f concat -safe 0 -r 15 -i montage3.txt -i /Users/guillaumepelletier/Desktop/Dropbox/Création\ musicale/Morceaux\ exportés/Le\ Pique-prune\ \(Set\ avec\ l\'Oxygen\ 61\ C4\).aif -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/montage-2560x1440.mp4
+
+ffmpeg -f concat -safe 0 -r 15 -i montage2-pcd.txt -i /Users/guillaumepelletier/Desktop/Dropbox/Création\ musicale/Morceaux\ exportés/Le\ Pique-prune\ \(Set\ avec\ l\'Oxygen\ 61\ C4\).aif -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/montage-2560x1440.mp4
+
+
+ffmpeg -ss 00:02:00 -i ./video-renders/montage-2560x1440.mp4 -t 00:02:00 -c copy ./video-renders/montage-2560x1440-cut-c.mp4
+
+ffmpeg -ss 00:02:40 -i ./video-renders/montage-2560x1440.mp4 -t 00:01:20 -c copy ./video-renders/montage-2560x1440-cut-d.mp4
+
+ffmpeg -i ./video-renders/montage-2560x1440-cut.mp4 -c:v libx264 -s 1280x720 -pix_fmt yuv420p ./video-renders/montage-1280x720-cut.mp4
+
+ffmpeg -i ./video-renders/montage-2560x1440-cut-c.mp4 -c:v libx264 -s 1280x720 -pix_fmt yuv420p ./video-renders/montage-1280x720-cut-c.mp4
+
+ffmpeg -i ./video-renders/montage-2560x1440-cut-d.mp4 -c:v libx264 -s 1920x1080 -pix_fmt yuv420p ./video-renders/montage-1920x1080-cut-d.mp4
