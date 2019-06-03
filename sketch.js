@@ -14,7 +14,8 @@ let turtle;
 
 function setup() {
     socket = io.connect('http://localhost:8080');
-    cnvs = createCanvas(windowWidth, windowWidth / 16 * 9);
+    // cnvs = createCanvas(windowWidth, windowWidth / 16 * 9);
+    cnvs = createCanvas(windowHeight, windowHeight);
     ctx = cnvs.drawingContext;
     canvasDOM = document.getElementById('defaultCanvas0');
     graphics = createGraphics(width * 2, height * 2);
@@ -50,10 +51,28 @@ function draw() {
     // clear();
     // turtle.s = sin(frameCount / 10) * 5;
     background(255);
+
     for (let i = 0; i < 2000; i++) {
         turtle.getLocation();
-        turtle.walk();
+        turtle.walk(i);
     }
+    turtle.walkingHistory.push({ x: turtle.pos.x, y: turtle.pos.y });
+    if (turtle.walkingHistory.length > 30) {
+        turtle.walkingHistory.shift();
+    }
+    if (turtle.walkingHistory.length == 30) {
+        let oldX = turtle.walkingHistory[0].x;
+        let oldY = turtle.walkingHistory[0].y;
+        if (Math.abs(oldX - turtle.pos.x) < 1 && Math.abs(oldY - turtle.pos.y) < 1) {
+            console.log("oldX : " + oldX + ", turtle.pos.x : " + turtle.pos.x)
+            turtle.pos = { x: random(width), y: random(height) };
+            turtle.walkingHistory = [];
+        }
+    }
+
+
+
+
     // image(graphics, 0, 0, width, height);
     image(turtlePath, 0, 0, width, height);
 

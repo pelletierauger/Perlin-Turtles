@@ -4,6 +4,7 @@ let Turtle = function(x, y) {
     this.location = { x: 0, y: 0 };
     this.currentValue = 0;
     this.s = 2;
+    this.walkingHistory = [];
 };
 
 Turtle.prototype.show = function() {
