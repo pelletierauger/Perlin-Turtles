@@ -6,7 +6,7 @@ let graphics;
 let turtlePath;
 
 var gridScalar = 16;
-var gridXAmount = 16 * gridScalar;
+var gridXAmount = 9 * gridScalar;
 var gridYAmount = 9 * gridScalar;
 var tileWidth;
 var grid = [];
