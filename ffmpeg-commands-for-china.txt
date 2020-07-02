@@ -1,0 +1,15 @@
+
+
+———————————————————————————————————————————————————————————————————————————————
+Je commence par faire le rendu.
+
+ffmpeg -f concat -safe 0 -r 15 -i montage3.txt -i ./soundtrack/pique-prune-48khz.aif -c:v libx264 -vf fps=fps=24,negate -s 1920x1080 -pix_fmt yuv420p -c:a alac ./video-renders/pelletier-auger-ravines-24fps-1920x1080-alac.mov
+———————————————————————————————————————————————————————————————————————————————
+Ensuite, je transfère ce rendu dans un contenant mp4.
+
+ffmpeg -i ./video-renders/pelletier-auger-ravines-24fps-1920x1080-alac.mov -acodec copy -vcodec copy -f mp4 ./video-renders/pelletier-auger-ravines-24fps-1920x1080-alac.mp4
+———————————————————————————————————————————————————————————————————————————————
+Et ensuite, je le retransfère dans un contenant .mov. Au final, j'obtiens un fichier que QuickTime reconnaît comme ayant été encodé par H.264.
+
+ffmpeg -i ./video-renders/pelletier-auger-ravines-24fps-1920x1080-alac.mp4 -acodec copy -vcodec copy -f mov ./video-renders/pelletier-auger-ravines-24fps-1920x1080-alac.mov
+———————————————————————————————————————————————————————————————————————————————

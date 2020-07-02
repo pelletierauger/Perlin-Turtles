@@ -1,0 +1,92 @@
+ffmpeg -f concat -safe 0 -r 24 -i montage2-transcoded.txt -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/non-cartesian-cauliflower-24fps.mp4
+
+ffmpeg -f concat -safe 0 -r 15 -i montage2-not-transcoded.txt -c:v libx264 -vf negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/non-cartesian-cauliflower-15fps.mp4
+
+
+ffmpeg -y -i ./video-renders/non-cartesian-cauliflower-15fps.mp4 -c copy -f h264 ./video-renders/non-cartesian-cauliflower-15fps.h264
+
+ffmpeg -y -r 24 -i ./video-renders/non-cartesian-cauliflower-15fps.h264 -c copy non-cartesian-cauliflower-24fps-remuxed.mp4
+
+
+ffmpeg -i ./video-renders/non-cartesian-cauliflower-15fps.mp4 -filter:v fps=fps=24 ./video-renders/non-cartesian-cauliflower-24fps-fpsfilter.mp4
+
+
+ffmpeg -i input_file.mp4 -acodec copy -vcodec copy -f mov output_file.mov
+
+ffmpeg -i ./video-renders/pelletier-auger-etude-no-2.mp4 -acodec copy -vcodec copy -f mov ./video-renders/pelletier-auger-etude-no-2.mov
+
+doit être en 1920 x 1080
+
+ffmpeg -f concat -safe 0 -r 15 -i montage2-not-transcoded.txt -c:v libx264 -vf fps=fps=24,negate -s 2560x1440 -pix_fmt yuv420p ./video-renders/non-cartesian-cauliflower-15-24fps.mp4
+
+-----------------------------------------------------------------------------------------------------
+Je teste plusieurs crf (Constant Rate Factor) et preset (vitesse)
+
+ffmpeg -f concat -safe 0 -r 15 -i montage2-not-transcoded.txt -c:v libx264 -vf fps=fps=24,negate -s 2560x1440 -pix_fmt yuv420p -crf 23 ./video-renders/non-cartesian-cauliflower-15-24fps-crf23.mp4
+
+ffmpeg -f concat -safe 0 -r 15 -i montage2-not-transcoded.txt -c:v libx264 -vf fps=fps=24,negate -s 2560x1440 -pix_fmt yuv420p -crf 29 ./video-renders/non-cartesian-cauliflower-15-24fps-crf29.mp4
+
+ffmpeg -f concat -safe 0 -r 15 -i montage2-not-transcoded.txt -c:v libx264 -vf fps=fps=24,negate -s 2560x1440 -pix_fmt yuv420p -crf 29 -preset slower ./video-renders/non-cartesian-cauliflower-15-24fps-crf29-slower.mp4
+
+-----------------------------------------------------------------------------------------------------
+crf 35 c'est trop haut, la compression devient perceptible
+ffmpeg -f concat -safe 0 -r 15 -i montage2-not-transcoded.txt -c:v libx264 -vf fps=fps=24,negate -s 2560x1440 -pix_fmt yuv420p -crf 35 ./video-renders/non-cartesian-cauliflower-15-24fps-crf35.mp4
+-----------------------------------------------------------------------------------------------------
+
+
+
+ffmpeg -f concat -safe 0 -r 15 -i montage2-not-transcoded.txt -c:v libx264 -vf fps=fps=24,negate -s 2560x1440 -pix_fmt yuv420p -crf 23 -preset slow ./video-renders/non-cartesian-cauliflower-15-24fps-crf23-slow.mp4
+
+ffmpeg -f concat -safe 0 -r 15 -i montage2-not-transcoded.txt -c:v libx264 -vf fps=fps=24,negate -s 2560x1440 -pix_fmt yuv420p -crf 23 -preset slower ./video-renders/non-cartesian-cauliflower-15-24fps-crf23-slower.mp4
+
+ffmpeg -f concat -safe 0 -r 15 -i montage2-not-transcoded.txt -c:v libx264 -vf fps=fps=24,negate -s 2560x1440 -pix_fmt yuv420p -crf 23 -preset veryslow ./video-renders/non-cartesian-cauliflower-15-24fps-crf23-veryslow.mp4
+
+
+ffmpeg -f concat -safe 0 -r 15 -i montage2-not-transcoded.txt -c:v libx264 -vf fps=fps=24,negate -s 2560x1440 -pix_fmt yuv420p -crf 17 ./video-renders/non-cartesian-cauliflower-15-24fps-crf17.mp4
+
+
+-----------------------------------------------------------------------------------------------------
+Conversion de la trame sonore en 48khz
+
+
+ffmpeg -i /Users/guillaumepelletier/Desktop/Dropbox/Création\ musicale/Morceaux\ exportés/Le\ Pique-prune\ \(Set\ avec\ l\'Oxygen\ 61\ C4\).aif -ar 48000 ./soundtrack/pique-prune-48khz.aif
+
+ffmpeg -f concat -safe 0 -r 15 -i montage2-not-transcoded.txt -i ./soundtrack/pique-prune-48khz.aif -c:v libx264 -vf fps=fps=24,negate -s 2560x1440 -pix_fmt yuv420p -crf 29 -shortest ./video-renders/non-cartesian-cauliflower-15-24fps-crf29-avec-son.mp4
+
+ffmpeg -f concat -safe 0 -r 15 -i montage2-not-transcoded.txt -i ./soundtrack/pique-prune-48khz.aif -c:v libx264 -vf fps=fps=24,negate -s 2560x1440 -pix_fmt yuv420p -crf 29 -shortest ./video-renders/non-cartesian-cauliflower-15-24fps-crf29-avec-son.mov
+
+
+Ma source audio en aif se transforme en fichier .aac à l’intérieur du conteneur .mp4
+J’aimerais pouvoir contrôler la qualité de cette trame sonore.
+Changer la qualité du stream audio dans le fichier final...
+
+-c:a libfdk_aac -b:a 128k
+
+
+ffmpeg -f concat -safe 0 -r 15 -i montage2-not-transcoded.txt -i ./soundtrack/pique-prune-48khz.aif -c:v libx264 -vf fps=fps=24,negate -s 2560x1440 -pix_fmt yuv420p -crf 29 -c:a aac -b:a 320k -shortest ./video-renders/non-cartesian-cauliflower-15-24fps-crf29-avec-son-320kbps.mov
+
+ffmpeg -f concat -safe 0 -r 15 -i montage2-not-transcoded.txt -i ./soundtrack/pique-prune-48khz.aif -c:v libx264 -vf fps=fps=25,negate -s 2560x1440 -pix_fmt yuv420p -crf 29 -c:a aac -b:a 320k -shortest ./video-renders/non-cartesian-cauliflower-15-25fps-crf29-avec-son-320kbps.mov
+
+
+ffmpeg -f concat -safe 0 -r 15 -i montage3.txt -i ./soundtrack/pique-prune-48khz.aif -c:v libx264 -vf fps=fps=25,negate -s 2560x1440 -pix_fmt yuv420p -crf 29 -c:a aac -b:a 320k ./video-renders/montage-2560x1440-25fps.mov
+
+ffmpeg -f concat -safe 0 -r 15 -i montage3.txt -i ./soundtrack/pique-prune-48khz.aif -c:v libx264 -vf fps=fps=24,negate -s 2560x1440 -pix_fmt yuv420p -c:a aac -b:a 320k ./video-renders/pelletier-auger-ravines-2560x1440-24fps.mov
+
+ffmpeg -f concat -safe 0 -r 15 -i montage3.txt -i ./soundtrack/pique-prune-48khz.aif -c:v libx264 -vf fps=fps=24,negate -s 2560x1440 -pix_fmt yuv420p -c:a alac ./video-renders/pelletier-auger-ravines-24fps-2K-alac.mov
+
+
+ffmpeg -i ./video-renders/pelletier-auger-ravines-24fps-2K-alac.mov -c copy -an ./video-renders/pelletier-auger-ravines-24fps-2K-alac-nosound.mov
+
+ffmpeg -i ./video-renders/test.mov -acodec copy -vcodec copy -f mp4 ./video-renders/test-mp4.mp4
+
+
+ffmpeg -i ./video-renders/pelletier-auger-ravines-24fps-2K-alac.mov -acodec copy -vcodec copy -f mp4 ./video-renders/pelletier-auger-ravines-24fps-2K-alac.mp4
+
+ffmpeg -i ./video-renders/pelletier-auger-ravines-24fps-2K-alac.mp4 -acodec copy -vcodec copy -f mov ./video-renders/pelletier-auger-ravines-24fps-2K-alac.mov
+
+
+ffmpeg -i ./video-renders/test-mp4.mp4 -acodec copy -vcodec copy -f mov ./video-renders/test-mp4.mov
+
+
+
+ffmpeg -f concat -safe 0 -r 15 -i montage-test.txt -i ./soundtrack/pique-prune-48khz.aif -c:v libx264 -vf fps=fps=24,negate -s 2560x1440 -pix_fmt yuv420p -shortest ./video-renders/test.mp4
