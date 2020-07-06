@@ -52,3 +52,26 @@ ffmpeg -i /Volumes/Volumina/video-renders/ravines/pelletier-auger-ravines-2560x1
 -c:a copy \
 -map 0:v:0 -map 1:a:0 \
 /Volumes/Volumina/video-renders/ravines/pelletier-auger-ravines-2560x1440-aac-320-crf21.mp4
+
+
+--------------------------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------------------------------
+
+ffmpeg -f concat -safe 0 -r 15 -i montage-slovakia.txt \
+-i ./soundtrack/pique-prune-48khz.m4a \
+-c:v libx264 -vf fps=fps=24,negate -pix_fmt yuv420p \
+-s 1920x1080 -sws_flags lanczos -crf 17 \
+-c:a copy \
+-threads 1 \
+/Volumes/Volumina/video-renders/ravines/pelletier-auger-ravines-1920x1080-aac-crf-17-lanczos.mp4
+
+
+ffmpeg -f concat -safe 0 -r 15 -i montage-slovakia.txt \
+-i ./soundtrack/pique-prune-48khz.m4a \
+-c:v libx264 \
+-vf fps=fps=24,negate,scale=w=1920:h=1080:sws_flags=lanczos,colorlevels=rimax=0.9:gimax=0.9:bimax=0.9 \
+-pix_fmt yuv420p -crf 17 \
+-c:a copy \
+-threads 1 \
+/Volumes/Volumina/video-renders/ravines/pelletier-auger-ravines-1920x1080-aac-crf-17-lanczos-levels.mp4
+
